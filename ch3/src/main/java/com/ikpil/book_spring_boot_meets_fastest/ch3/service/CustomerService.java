@@ -3,12 +3,14 @@ package com.ikpil.book_spring_boot_meets_fastest.ch3.service;
 import com.ikpil.book_spring_boot_meets_fastest.ch3.domain.Customer;
 import com.ikpil.book_spring_boot_meets_fastest.ch3.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Transactional
+@Service
 public class CustomerService {
     @Autowired
     CustomerRepository repository;
