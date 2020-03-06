@@ -3,6 +3,8 @@ package com.ikpil.book_spring_boot_meets_fastest.ch3.service;
 import com.ikpil.book_spring_boot_meets_fastest.ch3.domain.Customer;
 import com.ikpil.book_spring_boot_meets_fastest.ch3.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +19,10 @@ public class CustomerService {
 
     public List<Customer> findAll() {
         return repository.findAllOrderByName();
+    }
+
+    public Page<Customer> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
     public Optional<Customer> findOne(Integer id) {

@@ -3,10 +3,11 @@ package com.ikpil.book_spring_boot_meets_fastest.ch3.api;
 import com.ikpil.book_spring_boot_meets_fastest.ch3.domain.Customer;
 import com.ikpil.book_spring_boot_meets_fastest.ch3.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController // REST 웹 서비스의 엔드 포인트 컨트롤러 클래스에 지정하는 애너테이션
 @RequestMapping("api/customers")  // REST 웹 서비스의 URL과 매핑 애너테이션
@@ -14,14 +15,15 @@ public class CustomerRestController {
     @Autowired
     CustomerService customerService;
 
+    // REST API 중 GET 과 매핑
     @RequestMapping(method = RequestMethod.GET)
-        // REST API 중 GET 과 매핑
-    List<Customer> getCustomers() {
-        return customerService.findAll();
+    Page<Customer> getCustomers(@PageableDefault Pageable pageable) {
+        var customers = customerService.findAll(pageable);
+        return customers;
     }
 
+    // REST API 중 ../{id} 로 매핑
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
-        // REST API 중 ../{id} 로 매핑
     Customer getCustomer(@PathVariable Integer id) {
         return customerService.findOne(id).orElse(null);
     }
