@@ -12,7 +12,7 @@
         <td th:text="${customer.firstName}">길동</td>
         <td>
             <form th:action="@{/customers/edit}" method="get">
-                <input type="submit" value="삭제"/>
+                <input type="submit" value="편집"/>
                 <input type="hidden" name="id" th:value="${customer.id}"/>
             </form>
         </td>
