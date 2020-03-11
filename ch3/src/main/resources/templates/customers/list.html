@@ -42,7 +42,7 @@
             </form>
         </td>
         <td>
-            <form th:action="@{/customer/delete}" method="post">
+            <form th:action="@{/customers/delete}" method="post">
                 <input type="submit" value="삭제">
                 <input type="hidden" name="id" th:value="${customer.id}"/>
             </form>
