@@ -37,12 +37,12 @@
         <td th:text="${customer.firstName}">길동</td>
         <td>
             <form th:action="@{/customers/edit}" method="get">
-                <input type="submit" value="편집"/>
+                <input type="submit" name="form" value="편집"/>
                 <input type="hidden" name="id" th:value="${customer.id}"/>
             </form>
         </td>
         <td>
-            <form th:action="@{/customer/delete}" method="get">
+            <form th:action="@{/customer/delete}" method="post">
                 <input type="submit" value="삭제">
                 <input type="hidden" name="id" th:value="${customer.id}"/>
             </form>

@@ -66,8 +66,8 @@ public class CustomerController {
     }
 
     /**
-     * RequestParm 애너테이션은 특정 요청 파라미터를 매핑 할 수 있다.
-     * 여기선 /customer/edit/{id} 형태로 들어오기 때문에, 고객의 아이디 정보가 된다
+     * RequestParam 애너테이션은 특정 요청 파라미터를 매핑 할 수 있다.
+     * 여기선 /customer/edit 고객의 아이디 정보가 된다
      */
     @RequestMapping(value = "edit", params = "form", method = RequestMethod.GET)
     String editForm(@RequestParam Integer id, CustomerForm form) {
@@ -92,11 +92,12 @@ public class CustomerController {
         customer.setId(id);
         customerService.update(customer);
 
-        return "redirect:/customer";
+        return "redirect:/customers";
     }
 
     /**
-     * 요청 파라미터에 goToTop 이 포함되어 있으면, customers 페이지로 리다이렉트 시킨다.
+     * edit 요청이 들어 왔을 때, HTML form 의 name 에 goToTop 값이 있을 경우, 호출 된다
+     * 결과는 리다이렉션이다
      */
     @RequestMapping(value = "edit", params = "goToTop")
     String goToTop() {
