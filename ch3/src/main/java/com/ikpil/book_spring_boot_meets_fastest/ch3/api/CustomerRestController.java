@@ -25,7 +25,7 @@ public class CustomerRestController {
     // REST API 중 ../{id} 로 매핑
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
     Customer getCustomer(@PathVariable Integer id) {
-        return customerService.findOne(id).orElse(null);
+        return customerService.findOne(id);
     }
 
     @RequestMapping(method = RequestMethod.POST)

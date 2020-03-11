@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Transactional
 @Service
@@ -25,8 +24,8 @@ public class CustomerService {
         return repository.findAll(pageable);
     }
 
-    public Optional<Customer> findOne(Integer id) {
-        return repository.findById(id);
+    public Customer findOne(Integer id) {
+        return repository.findById(id).orElse(null);
     }
 
     public Customer create(Customer customer) {
