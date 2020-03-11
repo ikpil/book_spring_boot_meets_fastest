@@ -11,6 +11,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -61,6 +62,44 @@ public class CustomerController {
         /**
          * redirect:url 형식으로 리다이렉트 할 수 있다
          */
+        return "redirect:/customers";
+    }
+
+    /**
+     * RequestParm 애너테이션은 특정 요청 파라미터를 매핑 할 수 있다.
+     * 여기선 /customer/edit/{id} 형태로 들어오기 때문에, 고객의 아이디 정보가 된다
+     */
+    @RequestMapping(value = "edit", params = "form", method = RequestMethod.GET)
+    String editForm(@RequestParam Integer id, CustomerForm form) {
+        var customer = customerService.findOne(id);
+
+        // 여기서 form 에 고객 정보를 복사하여, html form 에 해당 고격의 정보를 채워 넣는다.
+        BeanUtils.copyProperties(customer, form);
+
+        return "customers/edit";
+    }
+
+    @RequestMapping(value = "edit", method = RequestMethod.POST)
+    String edit(@RequestParam Integer id, @Validated CustomerForm form, BindingResult result) {
+        if (result.hasErrors()) {
+            return editForm(id, form);
+        }
+
+        var customer = new Customer();
+
+        // 편집이기 때문에 HTML form 을 customer 에 셋팅한 후, 업데이트 한다
+        BeanUtils.copyProperties(form, customer);
+        customer.setId(id);
+        customerService.update(customer);
+
+        return "redirect:/customer";
+    }
+
+    /**
+     * 요청 파라미터에 goToTop 이 포함되어 있으면, customers 페이지로 리다이렉트 시킨다.
+     */
+    @RequestMapping(value = "edit", params = "goToTop")
+    String goToTop() {
         return "redirect:/customers";
     }
 }
