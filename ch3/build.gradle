@@ -7,13 +7,16 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-web')
     implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
     implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+    implementation('org.webjars:bootstrap:3.3.4')
+    implementation('nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect') // 이게 없으면 타임리프 레이 아웃이 안됨
+
     implementation('com.h2database:h2')
     implementation('org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.+')
 
     implementation('org.projectlombok:lombok:1.+')
+
     annotationProcessor('org.projectlombok:lombok')
 
     testImplementation ('org.springframework.boot:spring-boot-starter-test')
-    testAnnotationProcessor('org.projectlombok:lombok')
 }
 
