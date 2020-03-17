@@ -21,4 +21,8 @@ public class Customer {
 
     @Column(nullable = false)
     private String lastName;
+
+    @ManyToOne(fetch = FetchType.LAZY) // N:1 관계
+    @JoinColumn(nullable = true, name = "username") // 외부키 설정
+    private User user;
 }
