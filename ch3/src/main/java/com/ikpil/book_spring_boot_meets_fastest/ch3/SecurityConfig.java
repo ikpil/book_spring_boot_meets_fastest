@@ -16,7 +16,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity // 스프링 시큐리티에 관련된 기본적인 사항들이 설정된다
 @Configuration
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception { // 특정 요청에 대해서 시큐리티 설정 무시
         web.ignoring().antMatchers("/webjars/**", "/css/**"); // 정적 리소스 URL 지정하여 무시
