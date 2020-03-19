@@ -4,7 +4,7 @@ import com.ikpil.book_spring_boot_meets_fastest.ch3.domain.User;
 import org.springframework.security.core.authority.AuthorityUtils;
 
 public class LoginUserDetails extends org.springframework.security.core.userdetails.User {
-    private final User user;
+    public final User user;
 
     public LoginUserDetails(User user) {
         super(user.getUsername(), user.getEncodedPassword(), AuthorityUtils.createAuthorityList("ROLE_USER"));

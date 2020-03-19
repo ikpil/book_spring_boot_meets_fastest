@@ -1,6 +1,7 @@
 package com.ikpil.book_spring_boot_meets_fastest.ch3.service;
 
 import com.ikpil.book_spring_boot_meets_fastest.ch3.domain.Customer;
+import com.ikpil.book_spring_boot_meets_fastest.ch3.domain.User;
 import com.ikpil.book_spring_boot_meets_fastest.ch3.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,7 +29,8 @@ public class CustomerService {
         return repository.findById(id).orElse(null);
     }
 
-    public Customer create(Customer customer) {
+    public Customer create(Customer customer, User user) {
+        customer.setUser(user);
         return repository.save(customer);
     }
 

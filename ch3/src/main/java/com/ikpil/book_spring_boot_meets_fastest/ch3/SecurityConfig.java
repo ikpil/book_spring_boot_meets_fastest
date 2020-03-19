@@ -23,15 +23,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(HttpSecurity http) throws Exception { // 오버라이드 하여, 설정을 한다
 //        // security.basic.enabled: false 해당 옵션이 없어졌기 때문에, 일단 코드로 구현해야 한다
 //        // https://stackoverflow.com/questions/49717573/property-security-basic-enabled-is-deprecated-the-security-auto-configuration
 //        http.authorizeRequests().anyRequest().permitAll();
+
+        // 인가 설정
         http.authorizeRequests()
-                .antMatchers("/loginForm").permitAll()
+                .antMatchers("/loginForm").permitAll() // /loginForm 만 모든 유저 접속 인가
                 .anyRequest()
                 .authenticated();
 
+        // 로그인 설정
         http.formLogin()
                 .loginProcessingUrl("/login")
                 .loginPage("/loginForm")
@@ -41,16 +44,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordParameter("password")
                 .and();
 
+        // 로그아웃 설정
         http.logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout**"))
                 .logoutSuccessUrl("/loginForm");
     }
 
+    // 인증 처리에 관련된 사항을 설정한다.
     @Configuration
     static class AuthenticationConfiguration extends GlobalAuthenticationConfigurerAdapter {
         @Autowired
         UserDetailsService userDetailsService;
 
+        // 암호를 해쉬 형태로 받기 위해서 PasswordEncoder 정의
         @Bean
         PasswordEncoder passwordEncoder() {
             return new BCryptPasswordEncoder();

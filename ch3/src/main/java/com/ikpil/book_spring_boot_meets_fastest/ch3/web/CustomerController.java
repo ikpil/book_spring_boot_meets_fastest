@@ -2,8 +2,10 @@ package com.ikpil.book_spring_boot_meets_fastest.ch3.web;
 
 import com.ikpil.book_spring_boot_meets_fastest.ch3.domain.Customer;
 import com.ikpil.book_spring_boot_meets_fastest.ch3.service.CustomerService;
+import com.ikpil.book_spring_boot_meets_fastest.ch3.service.LoginUserDetails;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -40,7 +42,8 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "create", method = RequestMethod.POST)
-    String create(@Validated CustomerForm form, BindingResult result, Model model) {
+    String create(@Validated CustomerForm form, BindingResult result, Model model,
+                  @AuthenticationPrincipal LoginUserDetails userDetails) {
         /**
          * Validated 애너에티션이 붙으면 Bean Validation 애너테이션이 적용 되고, 그 결과값이 다음 파라메터인
          * BindingResult 인자 result 에 저장 된다
@@ -57,7 +60,7 @@ public class CustomerController {
          * 필드 이름과 타입이 같을 때만 데이터가 복사 됨을 주의 해야 한다, 더 유연한 것을 원한다면 Dozer 나 ModelMapper 를 이용해야 한다
          */
         BeanUtils.copyProperties(form, customer);
-        customerService.create(customer);
+        customerService.create(customer, userDetails.user);
 
         /**
          * redirect:url 형식으로 리다이렉트 할 수 있다
