@@ -31,7 +31,8 @@ public class CustomerRestController {
     @RequestMapping(method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
     Customer postCustomers(@RequestBody Customer customer) {
-        return customerService.create(customer);
+        //return customerService.create(customer);
+        return null;
     }
 
     @RequestMapping(value = "{id}", method = RequestMethod.PUT)
