@@ -27,8 +27,10 @@ public class AppConfig {
                 .username(this.dataSourceProperties.getUsername())
                 .password(this.dataSourceProperties.getPassword());
 
+
         this.dataSource = factory.build();
-        return new net.sf.log4jdbc.sql.jdbcapi.DataSourceSpy(this.dataSource);
+        //return new net.sf.log4jdbc.sql.jdbcapi.DataSourceSpy(this.dataSource);
+        return this.dataSource;
     }
 
     /**
