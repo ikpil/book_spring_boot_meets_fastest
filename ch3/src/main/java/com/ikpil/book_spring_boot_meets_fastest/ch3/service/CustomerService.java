@@ -18,7 +18,8 @@ public class CustomerService {
     CustomerRepository repository;
 
     public List<Customer> findAll() {
-        return repository.findAllOrderByName();
+        //return repository.findAllOrderByName();
+        return repository.findAllWithUserOrderByName();
     }
 
     public Page<Customer> findAll(Pageable pageable) {
