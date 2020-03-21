@@ -11,7 +11,7 @@ dependencies {
     implementation('org.webjars:bootstrap:3.3.4')
     implementation('nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect') // 이게 없으면 타임리프 레이 아웃이 안됨
     implementation('org.flywaydb:flyway-core')
-    implementation('org.thymeleaf.extras:thymeleaf-extras-springsecurity3:+')
+    implementation('org.thymeleaf.extras:thymeleaf-extras-springsecurity5')
 
 
     implementation('com.h2database:h2')
