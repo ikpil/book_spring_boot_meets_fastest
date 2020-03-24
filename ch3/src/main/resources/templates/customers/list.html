@@ -13,7 +13,8 @@
 <div class="container">
     <h1>고객 관리 시스템</h1>
     <p>
-        <span sec:authentication="principal.user.username">duke</span>님이 로그인 상태
+        <!-- https://blog.jiniworld.me/40 -->
+        <span sec:authentication="principal.username">duke</span>님이 로그인 상태
         <a th:href="@{/logout}" class="btn btn-default btn-xs">로그 아옷</a>
     </p>
     <div class="col-sm-12">
