@@ -1,4 +1,4 @@
-package com.ikpil.book_spring_boot_meets_fastest.ch4.domain;
+package com.ikpil.book_spring_boot_meets_fastest.ch3.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;

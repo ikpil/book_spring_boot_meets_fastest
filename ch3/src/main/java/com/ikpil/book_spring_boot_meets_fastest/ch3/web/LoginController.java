@@ -1,4 +1,4 @@
-package com.ikpil.book_spring_boot_meets_fastest.ch4.web;
+package com.ikpil.book_spring_boot_meets_fastest.ch3.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

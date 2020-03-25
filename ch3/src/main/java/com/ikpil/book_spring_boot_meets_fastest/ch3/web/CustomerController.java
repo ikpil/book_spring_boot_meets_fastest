@@ -1,8 +1,8 @@
-package com.ikpil.book_spring_boot_meets_fastest.ch4.web;
+package com.ikpil.book_spring_boot_meets_fastest.ch3.web;
 
-import com.ikpil.book_spring_boot_meets_fastest.ch4.domain.Customer;
-import com.ikpil.book_spring_boot_meets_fastest.ch4.service.CustomerService;
-import com.ikpil.book_spring_boot_meets_fastest.ch4.service.LoginUserDetails;
+import com.ikpil.book_spring_boot_meets_fastest.ch3.domain.Customer;
+import com.ikpil.book_spring_boot_meets_fastest.ch3.service.CustomerService;
+import com.ikpil.book_spring_boot_meets_fastest.ch3.service.LoginUserDetails;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

@@ -1,6 +1,6 @@
-package com.ikpil.book_spring_boot_meets_fastest.ch4.service;
+package com.ikpil.book_spring_boot_meets_fastest.ch3.service;
 
-import com.ikpil.book_spring_boot_meets_fastest.ch4.repository.UserRepository;
+import com.ikpil.book_spring_boot_meets_fastest.ch3.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

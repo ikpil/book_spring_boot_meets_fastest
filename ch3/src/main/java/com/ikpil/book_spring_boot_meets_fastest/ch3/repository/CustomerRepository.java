@@ -1,6 +1,6 @@
-package com.ikpil.book_spring_boot_meets_fastest.ch4.repository;
+package com.ikpil.book_spring_boot_meets_fastest.ch3.repository;
 
-import com.ikpil.book_spring_boot_meets_fastest.ch4.domain.Customer;
+import com.ikpil.book_spring_boot_meets_fastest.ch3.domain.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

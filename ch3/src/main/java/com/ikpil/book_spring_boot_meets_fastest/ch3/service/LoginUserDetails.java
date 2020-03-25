@@ -1,6 +1,6 @@
-package com.ikpil.book_spring_boot_meets_fastest.ch4.service;
+package com.ikpil.book_spring_boot_meets_fastest.ch3.service;
 
-import com.ikpil.book_spring_boot_meets_fastest.ch4.domain.User;
+import com.ikpil.book_spring_boot_meets_fastest.ch3.domain.User;
 import org.springframework.security.core.authority.AuthorityUtils;
 
 public class LoginUserDetails extends org.springframework.security.core.userdetails.User {

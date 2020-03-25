@@ -1,7 +1,7 @@
-package com.ikpil.book_spring_boot_meets_fastest.ch4.api;
+package com.ikpil.book_spring_boot_meets_fastest.ch3.api;
 
-import com.ikpil.book_spring_boot_meets_fastest.ch4.domain.Customer;
-import com.ikpil.book_spring_boot_meets_fastest.ch4.service.CustomerService;
+import com.ikpil.book_spring_boot_meets_fastest.ch3.domain.Customer;
+import com.ikpil.book_spring_boot_meets_fastest.ch3.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
